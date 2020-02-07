@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>其实的博客</title>
+    <description>The blog of TQTIM</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 08 Feb 2020 00:00:41 +0800</pubDate>
+    <lastBuildDate>Sat, 08 Feb 2020 00:00:41 +0800</lastBuildDate>
+    <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>开篇</title>
+        <description>&lt;p&gt;使用Yummy Jekyll模板搭建博客&lt;/p&gt;
+&lt;h2 id=&quot;yummy-jekyll&quot;&gt;Yummy Jekyll&lt;/h2&gt;
+
+&lt;p&gt;本博客以DONGChuan的Yummy-Jekyll为原本模板构建而成。第一次见这个博客是无意中看到&lt;a href=&quot;http://www.ityouknow.com/&quot;&gt;纯洁的微笑&lt;/a&gt;的博客，
+当时就感觉博客很简约很棒。然后就知道Jekyll+GitHubPage可以免费搭建博客，不用自个一点点手写搭建博客和买vps。当然在搭建博客时遇到许多的坑，这里要感谢&lt;a href=&quot;https://smartjinyu.github.io&quot;&gt;smartjinyu&lt;/a&gt;,
+因为jekelly更新后以前的模板写法到现在的环境已经编译不通过，所以我刚开始用原作者DONGChuan的Yummy-Jekyll本地运行Jekyll出各种错，就用了tqtim的模板。
+在此表示感谢，原始代码可参考页面左下角的链接。
+目前博客是搭建在Github Pages上，利用Jekyll完成的，以后考虑把博客迁移到VPS上。&lt;/p&gt;
+
+&lt;h2 id=&quot;how-to-install&quot;&gt;How to install&lt;/h2&gt;
+
+&lt;p&gt;参见&lt;a href=&quot;https://juejin.im/post/5c8af612e51d45648f582d69&quot;&gt;Jekyll 搭建 Github Pages 个人博客&lt;/a&gt;，&lt;/p&gt;
+&lt;h2 id=&quot;problems&quot;&gt;problems&lt;/h2&gt;
+
+&lt;p&gt;搭建过程中遇到的问题：&lt;/p&gt;
+</description>
+        <pubDate>Sat, 16 Sep 2017 15:38:20 +0800</pubDate>
+        <link>http://localhost:4000/others/2017/09/16/first-blog.html</link>
+        <guid isPermaLink="true">http://localhost:4000/others/2017/09/16/first-blog.html</guid>
+        
+        
+        <category>others</category>
+        
+      </item>
+    
+  </channel>
+</rss>
