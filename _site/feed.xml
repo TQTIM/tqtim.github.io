@@ -5,9 +5,123 @@
     <description>The blog of TQTIM</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 08 Feb 2020 00:00:41 +0800</pubDate>
-    <lastBuildDate>Sat, 08 Feb 2020 00:00:41 +0800</lastBuildDate>
+    <pubDate>Sun, 09 Feb 2020 17:31:09 +0800</pubDate>
+    <lastBuildDate>Sun, 09 Feb 2020 17:31:09 +0800</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Vultr注册、购买和V2ray搭建</title>
+        <description>&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+&lt;p&gt;搭梯子首要的是什么？当然是一台国外服务器！那么多服务器提供商，该选哪个呢？可以看&lt;a href=&quot;https://www.10besty.com/best-vps-hosting-services/&quot;&gt;国外vps推荐&lt;/a&gt;列举各大商优缺点，排行什么的仅做参考，挑选自己合适的。
+不知道你之前有没有过vpn被封的经历，或者用手机端免费VPN时网速忒慢，尤其记得国庆阅兵的那段时间许多IP被封。所以我想说什么问题呢，
+如果你买类似Bandwagon搬瓦工这种的话，一买就是一年的话，万一你幸运，搭好梯子，刚访问了个Google首页就被逮住了，那你钱岂不是白花了，因为bandwagon是绑定ip的。
+现在说一下为什么要选vultr，vultr是按小时计费而且极其便宜，而且支持支付宝、微信付款，最便宜的2.5刀一个月（不合适，2.5$只提供ipv6），我们至少要选择3.5刀一个月的。
+那按小时计费什么意思呢，刚刚上面提到过封ip的问题，按小时计费的话，封了我们就删掉这台服务器，重新开一台就好喽，重开就换新ip了。不过这几年vultr被国人玩坏了，
+很多IP又被封了，你安装的服务器IP有很大概率选到已经被封了的，可以通过windos命名行ping IP来测试是否可用，或者&lt;a href=&quot;http://ping.chinaz.com/&quot;&gt;多地点Ping服务器&lt;/a&gt;，如果IP不通可以再多开几台服务器，挑到可用的IP然后删除没用的服务器。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Vultr采用时长计费方式，没有包年包月套餐。只要账户余额足够，服务器可以一直用。不需要时可销毁服务器，销毁后不再计费。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;注册&quot;&gt;注册&lt;/h2&gt;
+&lt;p&gt;点击&lt;a href=&quot;注: 限时注册Vultr送100刀，一个月有效，先消耗送的金额&quot;&gt;注册Vultr账号&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;在中间注册页面输入你的电子邮箱地址（用来接收验证邮件以及通知），并设置账号密码。账户密码要求同时包含数字、小写字母，大写字母，并且不低于10个字符，填完点Create account&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/2020-02-08/in.png&quot; alt=&quot;in&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;购买&quot;&gt;购买&lt;/h2&gt;
+
+&lt;p&gt;进去后点左边Billing进入充值页面,选支付宝或微信充值金额
+&lt;img src=&quot;/img/2020-02-08/money.jpg&quot; alt=&quot;money&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;然后点击右边蓝色的“➕”（买新服务器）按钮，进入服务器购买页面。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/2020-02-08/server.png&quot; alt=&quot;server&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;首先是选择服务器类型，使用默认的“cloud compute”：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/2020-02-08/1.png&quot; alt=&quot;server&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Server Location 项，选服务器的地理位置。移动用户建议选择日本或者新加坡节点；联通用户建议选择新加坡、杉矶机、硅谷和西雅图机房；电信用户建议选择洛杉矶、硅谷和西雅图机房。
+因为vultr支持随时切换机房和更换ip，如果你选择的机房速度不满意，可以删除服务器重建。我选的是纽约的3.5$，日本新加坡好像最低5$。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/2020-02-08/2.png&quot; alt=&quot;server&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Server Type，就是选择操作系统，选择ubuntu 18或centos 7 x64，因为网上很多科学配置上网教程和一键脚本都是运行在这个系统上。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/2020-02-08/3.png&quot; alt=&quot;server&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;可以选勾Enable IPv6，点右下角的“deploy now”按钮创建服务器&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/2020-02-08/4.png&quot; alt=&quot;server&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;给服务器起个英文名&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/2020-02-08/5.png&quot; alt=&quot;server&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;没问题的话点右下角的“deploy now”按钮创建服务器，等服务器正在install完成变为running&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/2020-02-08/6.png&quot; alt=&quot;server&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;进入服务器可查看服务器信息&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/2020-02-08/7.png&quot; alt=&quot;server&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;梯子v2ray的搭建&quot;&gt;梯子V2ray的搭建&lt;/h2&gt;
+
+&lt;h4 id=&quot;连接服务器&quot;&gt;连接服务器&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;windows请下载软件xshell&lt;/li&gt;
+  &lt;li&gt;Mac可以下载ShellCraft&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以windows的xshell为例：
+&lt;img src=&quot;/img/2020-02-08/xshell.png&quot; alt=&quot;server&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;确定后填服务器用户和名称（购买服务器信息里有），连接成功后就可以远程访问你的服务器了，然后在这可以部署科学上网脚本。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;注意：如果连不上，可能是这个ip被封了，毕竟用vultr干坏事的太多了，没关系，你可以同时开多台（千万不要着急删掉不能用的，不然还会分到之前不能用的ip），
+一直开到找到能用的ip为止，然后就可以把其他的服务器删掉了&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;运行一键脚本&quot;&gt;运行一键脚本&lt;/h4&gt;
+
+&lt;p&gt;如果你选的是ubuntu,可以参考&lt;a href=&quot;https://viencoding.com/article/207&quot;&gt;如何搭建v2ray，放弃使用ss和ssr&lt;/a&gt;这篇教程。&lt;/p&gt;
+
+&lt;p&gt;如果你选的是centos，可以参考&lt;a href=&quot;https://www.hijk.pw/centos-one-click-install-v2ray/&quot;&gt;V2Ray一键脚本&lt;/a&gt;或者&lt;a href=&quot;https://www.hijk.pw/v2ray-one-click-script-with-mask/&quot;&gt;V2Ray带伪装一键脚本&lt;/a&gt;教程。&lt;/p&gt;
+
+&lt;h4 id=&quot;客户端下载&quot;&gt;客户端下载&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.hijk.pw/v2ray-android-client-download/&quot;&gt;v2ray安卓客户端下载&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.hijk.pw/v2ray-windows-client-download/&quot;&gt;v2ray windows客户端下载&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.hijk.pw/v2ray-mac-client-download/&quot;&gt;V2Ray mac客户端下载&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;ios客户端自行百度Shadowrocket（俗称小火箭，注意不是shadowrocket VPN），借用别人境外apple id下载别人买好的Shadowrocket&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;下载完客户端配置时：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;类型：选Vmess&lt;/li&gt;
+  &lt;li&gt;服务器、端口、用户名：填xshell远程一键脚本安装V2ray成功后的信息&lt;/li&gt;
+  &lt;li&gt;算法：选aes-128-gcm&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;问题&quot;&gt;问题&lt;/h4&gt;
+
+&lt;p&gt;谷歌、火狐浏览器无法科学上网但其他浏览器可以，参见&lt;a href=&quot;https://www.qcgzxw.cn/2988.html&quot;&gt;谷歌浏览器插件SwitchyOmega&lt;/a&gt;。&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 08 Feb 2020 20:10:20 +0800</pubDate>
+        <link>http://localhost:4000/vultr/2020/02/08/create-account-vultr.html</link>
+        <guid isPermaLink="true">http://localhost:4000/vultr/2020/02/08/create-account-vultr.html</guid>
+        
+        
+        <category>vultr</category>
+        
+      </item>
     
       <item>
         <title>开篇</title>

@@ -11,17 +11,17 @@ layout: default
 
             {{ content }}
 
-            <!-- Comments -->
-            {% include disqus-comments.html %}
+          <!-- Comments -->
+ <!--注掉   {% include disqus-comments.html %}  -->
         </div>
         {% else %}
-        <div class="col-md-8 markdown-body">
+        <div class="col-md-8 markdown-body"> 
 
             {{ content }}
 
             <!-- Comments -->
-            {% include disqus-comments.html %}
-        </div>
+ <!--            {% include disqus-comments.html %}   -->
+        </div>       
         {% endif %}
 
     </div>

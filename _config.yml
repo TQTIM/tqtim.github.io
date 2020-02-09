@@ -13,7 +13,7 @@ location: nanchang # ex. Nice, France
 github_url: https://github.com/TQTIM # ex. https://github.com/DONGChuan
 location_url: https://www.google.com/maps/place/南昌
 description: The blog of TQTIM
-twitter_name: 推
+twitter_name: tqtim
 favicon: favicon.png # Image must be in assets/images
 repository: TQTIM/tqtim.github.io # ex. DONGChuan/DONGChuan.github.io
 
