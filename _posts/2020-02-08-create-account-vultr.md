@@ -22,9 +22,11 @@ analytics: true
 [国外vps推荐]:https://www.10besty.com/best-vps-hosting-services/
 [多地点Ping服务器]:http://ping.chinaz.com/
 ## 注册
-点击[注册Vultr账号](注: 限时注册Vultr送100刀，一个月有效，先消耗送的金额)
+点击[注册Vultr账号]
 
-[注册Vultr账号]:https://www.vultr.com/
+[注册Vultr账号]:https://www.vultr.com/?ref=8444334-6G
+>注: 点此链接注册充值激活后才送100美元。限时注册Vultr送的100刀，一个月有效，先消耗送的金额
+
 在中间注册页面输入你的电子邮箱地址（用来接收验证邮件以及通知），并设置账号密码。账户密码要求同时包含数字、小写字母，大写字母，并且不低于10个字符，填完点Create account
 
 ![in](/img/2020-02-08/in.png)

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript">
+        var host = "tqtim.com";
+        if ((host == window.location.host) && (window.location.protocol != "https:"))
+            window.location.protocol = "https";
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="canonical" href=" { { site.url } }{ { page.url } }" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+
+    <title> Vultr注册、购买和V2ray搭建 - tqtim's Blog </title>
+
+    <meta name="description"
+          content="vps选择与搭建">
+
+    <link rel="canonical" href="http://localhost:4000/vultr/2020/02/08/create-account-vultr.html">
+    <link rel="alternate" type="application/rss+xml" title="其实的博客" href="http://localhost:4000/feed.xml">
+
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+
+    <!-- CSS set in layout -->
+    
+    <link rel="stylesheet" href="/assets/css/sidebar-post-nav.css">
+    
+
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="TQTIM">
+           <span class="octicon octicon-avatar"></span> TQTIM
+            
+
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+            <a href="/about"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="About">
+                About
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <section class="jumbotron geopattern" data-pattern-id="Vultr注册、购买和V2ray搭建">
+    <div class="container">
+        <div id="jumbotron-meta-info">        
+            <h1>Vultr注册、购买和V2ray搭建</h1>
+            <span class="meta-info">
+                
+                
+                <span class="octicon octicon-calendar"></span> 2020/02/08
+                
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="row">
+
+        
+        <div class="col-md-8 markdown-body">
+
+            <h2 id="前言">前言</h2>
+<p>搭梯子首要的是什么？当然是一台国外服务器！那么多服务器提供商，该选哪个呢？可以看<a href="https://www.10besty.com/best-vps-hosting-services/">国外vps推荐</a>列举各大商优缺点，排行什么的仅做参考，挑选自己合适的。
+不知道你之前有没有过vpn被封的经历，或者用手机端免费VPN时网速忒慢，尤其记得国庆阅兵的那段时间许多IP被封。所以我想说什么问题呢，
+如果你买类似Bandwagon搬瓦工这种的话，一买就是一年的话，万一你幸运，搭好梯子，刚访问了个Google首页就被逮住了，那你钱岂不是白花了，因为bandwagon是绑定ip的。
+现在说一下为什么要选vultr，vultr是按小时计费而且极其便宜，而且支持支付宝、微信付款，最便宜的2.5刀一个月（不合适，2.5$只提供ipv6），我们至少要选择3.5刀一个月的。
+那按小时计费什么意思呢，刚刚上面提到过封ip的问题，按小时计费的话，封了我们就删掉这台服务器，重新开一台就好喽，重开就换新ip了。不过这几年vultr被国人玩坏了，
+很多IP又被封了，你安装的服务器IP有很大概率选到已经被封了的，可以通过windos命名行ping IP来测试是否可用，或者<a href="http://ping.chinaz.com/">多地点Ping服务器</a>，如果IP不通可以再多开几台服务器，挑到可用的IP然后删除没用的服务器。</p>
+
+<blockquote>
+  <p>Vultr采用时长计费方式，没有包年包月套餐。只要账户余额足够，服务器可以一直用。不需要时可销毁服务器，销毁后不再计费。</p>
+</blockquote>
+
+<h2 id="注册">注册</h2>
+<p>点击<a href="https://www.vultr.com/?ref=8444334-6G">注册Vultr账号</a></p>
+
+<blockquote>
+  <p>注: 点此链接注册充值激活后才送100美元。限时注册Vultr送的100刀，一个月有效，先消耗送的金额</p>
+</blockquote>
+
+<p>在中间注册页面输入你的电子邮箱地址（用来接收验证邮件以及通知），并设置账号密码。账户密码要求同时包含数字、小写字母，大写字母，并且不低于10个字符，填完点Create account</p>
+
+<p><img src="/img/2020-02-08/in.png" alt="in" /></p>
+
+<h2 id="购买">购买</h2>
+
+<p>进去后点左边Billing进入充值页面,选支付宝或微信充值金额
+<img src="/img/2020-02-08/money.jpg" alt="money" /></p>
+
+<p>然后点击右边蓝色的“➕”（买新服务器）按钮，进入服务器购买页面。</p>
+
+<p><img src="/img/2020-02-08/server.png" alt="server" /></p>
+
+<p>首先是选择服务器类型，使用默认的“cloud compute”：</p>
+
+<p><img src="/img/2020-02-08/1.png" alt="server" /></p>
+
+<p>Server Location 项，选服务器的地理位置。移动用户建议选择日本或者新加坡节点；联通用户建议选择新加坡、杉矶机、硅谷和西雅图机房；电信用户建议选择洛杉矶、硅谷和西雅图机房。
+因为vultr支持随时切换机房和更换ip，如果你选择的机房速度不满意，可以删除服务器重建。我选的是纽约的3.5$，日本新加坡好像最低5$。</p>
+
+<p><img src="/img/2020-02-08/2.png" alt="server" /></p>
+
+<p>Server Type，就是选择操作系统，选择ubuntu 18或centos 7 x64，因为网上很多科学配置上网教程和一键脚本都是运行在这个系统上。</p>
+
+<p><img src="/img/2020-02-08/3.png" alt="server" /></p>
+
+<p>可以选勾Enable IPv6，点右下角的“deploy now”按钮创建服务器</p>
+
+<p><img src="/img/2020-02-08/4.png" alt="server" /></p>
+
+<p>给服务器起个英文名</p>
+
+<p><img src="/img/2020-02-08/5.png" alt="server" /></p>
+
+<p>没问题的话点右下角的“deploy now”按钮创建服务器，等服务器正在install完成变为running</p>
+
+<p><img src="/img/2020-02-08/6.png" alt="server" /></p>
+
+<p>进入服务器可查看服务器信息</p>
+
+<p><img src="/img/2020-02-08/7.png" alt="server" /></p>
+
+<h2 id="梯子v2ray的搭建">梯子V2ray的搭建</h2>
+
+<h4 id="连接服务器">连接服务器</h4>
+
+<ul>
+  <li>windows请下载软件xshell</li>
+  <li>Mac可以下载ShellCraft</li>
+</ul>
+
+<p>以windows的xshell为例：
+<img src="/img/2020-02-08/xshell.png" alt="server" /></p>
+
+<p>确定后填服务器用户和名称（购买服务器信息里有），连接成功后就可以远程访问你的服务器了，然后在这可以部署科学上网脚本。</p>
+
+<blockquote>
+  <p>注意：如果连不上，可能是这个ip被封了，毕竟用vultr干坏事的太多了，没关系，你可以同时开多台（千万不要着急删掉不能用的，不然还会分到之前不能用的ip），
+一直开到找到能用的ip为止，然后就可以把其他的服务器删掉了</p>
+</blockquote>
+
+<h4 id="运行一键脚本">运行一键脚本</h4>
+
+<p>如果你选的是ubuntu,可以参考<a href="https://viencoding.com/article/207">如何搭建v2ray，放弃使用ss和ssr</a>这篇教程。</p>
+
+<p>如果你选的是centos，可以参考<a href="https://www.hijk.pw/centos-one-click-install-v2ray/">V2Ray一键脚本</a>或者<a href="https://www.hijk.pw/v2ray-one-click-script-with-mask/">V2Ray带伪装一键脚本</a>教程。</p>
+
+<h4 id="客户端下载">客户端下载</h4>
+
+<ul>
+  <li><a href="https://www.hijk.pw/v2ray-android-client-download/">v2ray安卓客户端下载</a></li>
+  <li><a href="https://www.hijk.pw/v2ray-windows-client-download/">v2ray windows客户端下载</a></li>
+  <li><a href="https://www.hijk.pw/v2ray-mac-client-download/">V2Ray mac客户端下载</a></li>
+  <li>ios客户端自行百度Shadowrocket（俗称小火箭，注意不是shadowrocket VPN），借用别人境外apple id下载别人买好的Shadowrocket</li>
+</ul>
+
+<p>下载完客户端配置时：</p>
+<ul>
+  <li>类型：选Vmess</li>
+  <li>服务器、端口、用户名：填xshell远程一键脚本安装V2ray成功后的信息</li>
+  <li>算法：选aes-128-gcm</li>
+</ul>
+
+<h4 id="问题">问题</h4>
+
+<p>谷歌、火狐浏览器无法科学上网但其他浏览器可以，参见<a href="https://www.qcgzxw.cn/2988.html">谷歌浏览器插件SwitchyOmega</a>。</p>
+
+
+
+            <!-- Comments -->
+            
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+         * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+        /*
+         var disqus_config = function () {
+         this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+         };
+         */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+            s.src = '//tqtim.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+        </div>
+
+        <div class="col-md-4">
+            <h3>Post Directory</h3>
+<div id="post-directory-module">
+<section class="post-directory">
+    <!-- Links that trigger the jumping -->
+    <!-- Added by javascript below -->
+    <dl></dl>
+</section>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $( "article h2" ).each(function( index ) {
+            $(".post-directory dl").append("<dt><a class=\"jumper\" hre=#" +
+                    $(this).attr("id")
+                    + ">"
+                    + $(this).text()
+                    + "</a></dt>");
+
+            var children = $(this).nextUntil("h2", "h3")
+
+            children.each(function( index ) {
+                $(".post-directory dl").append("<dd><a class=\"jumper\" hre=#" +
+                        $(this).attr("id")
+                        + ">"
+                        + "&nbsp;&nbsp;- " + $(this).text()
+                        + "</a></dd>");
+            });
+        });
+
+        var fixmeTop = $('#post-directory-module').offset().top - 100;       // get initial position of the element
+
+        $(window).scroll(function() {                  // assign scroll event listener
+
+            var currentScroll = $(window).scrollTop(); // get current position
+
+            if (currentScroll >= fixmeTop) {           // apply position: fixed if you
+                $('#post-directory-module').css({      // scroll to that element or below it
+                    top: '100px',
+                    position: 'fixed',
+                    width: 'inherit'
+                });
+            } else {                                   // apply position: static
+                $('#post-directory-module').css({      // if you scroll above it
+                    position: 'inherit',
+                    width: 'inherit'
+                });
+            }
+
+        });
+
+        $("a.jumper").on("click", function( e ) {
+
+            e.preventDefault();
+
+            $("body, html").animate({
+                scrollTop: ($( $(this).attr('hre') ).offset().top - 100)
+            }, 600);
+
+        });
+    });
+
+</script>
+        </div>
+        
+
+    </div>
+
+</article>
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="pull-left">
+            <span class="meta-info hvr-grow">
+                <span class="octicon octicon-rss"></span>
+                <a href="http://localhost:4000\feed.xml">Subscribe Via RSS</a>
+            </span>
+        </div>
+
+        <a href="https://github.com/TQTIM" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="copyright pull-right">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+            <!-- <a href="javascript:window.scrollTo(0,0)" >TOP</a>-->
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
+    
+
+    
+    <!-- Google Analytics -->
+    <div style="display:none">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-76820186-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+    </div>
+    
+
+</footer>
+
+
+    </body>
+
+</html>
